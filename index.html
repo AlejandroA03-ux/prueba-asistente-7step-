@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prueba Asistente Digital | 7STEP</title>
+<style>
+:root{--g:#18d8ad;--ink:#101514;--mut:#66706d;--line:#dfe8e5;--bg:#f4f8f7}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:#fff;border-bottom:1px solid var(--line);padding:22px 18px}.brand{max-width:900px;margin:auto;display:flex;align-items:center;gap:14px}
+.logo{font-weight:900;font-size:28px;letter-spacing:-1px}.logo b{color:var(--g)}.tag{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:1px}
+main{max-width:900px;margin:26px auto;padding:0 16px 50px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:16px;box-shadow:0 8px 24px #10201b0a}
+h1{font-size:28px;margin:0 0 8px}h2{font-size:19px;margin:0 0 16px}.intro{color:var(--mut);line-height:1.5}.timer{position:sticky;top:12px;z-index:3;margin-left:auto;background:#101514;color:#fff;border-radius:999px;padding:10px 14px;width:max-content;font-weight:700}
+label{display:block;font-weight:700;margin:15px 0 7px}input,textarea,select{width:100%;border:1px solid #cfdad7;border-radius:10px;padding:12px;font:inherit;background:#fff}textarea{min-height:105px;resize:vertical}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.data{background:#f4fbf9;border-left:4px solid var(--g);padding:15px;border-radius:10px;line-height:1.7}
+.note{font-size:13px;color:var(--mut)}button{border:0;border-radius:12px;padding:14px 18px;font-weight:800;font-size:15px;cursor:pointer}
+.primary{background:var(--g);color:#062d24;width:100%;margin-top:10px}.secondary{background:#101514;color:#fff}
+#done{display:none;text-align:center;padding:50px 24px}.check{font-size:54px}.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.card{padding:18px}h1{font-size:24px}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo"><b>7</b>STEP</div><div><div class="tag">Selección de personal</div><strong>Prueba práctica · Asistente Digital</strong></div></div></header>
+<main>
+<div id="test">
+<div class="timer" id="timer">00:00</div>
+<div class="card"><h1>Prueba práctica</h1><p class="intro">Lee cuidadosamente. Trabaja únicamente con la información suministrada. Si detectas un dato dudoso o contradictorio, explica qué harías antes de publicar.</p>
+<div class="grid"><div><label>Nombre y apellido *</label><input id="nombre" required></div><div><label>Fecha</label><input id="fecha" type="date"></div></div></div>
+
+<form id="form">
+<div class="card"><h2>1 · Producto y catálogo</h2>
+<div class="data"><b>Marca:</b> MOQ-LONIE<br><b>Producto:</b> Cargador de carga rápida<br><b>Modelo:</b> C125<br><b>Potencia:</b> 125W<br><b>Color:</b> Blanco<br><b>Precio al mayor:</b> $5.20<br><b>Precio desde 500 unidades:</b> $4.50<br><b>Stock:</b> 438 unidades</div>
+<label>Crea un título para publicar este producto. *</label><input name="titulo" required>
+<label>Escribe una descripción corta utilizando únicamente la información suministrada. *</label><textarea name="descripcion" required></textarea>
+<label>¿Qué precio(s) colocarías y cómo los presentarías? *</label><textarea name="precios" required></textarea>
+<label>Antes de publicar, ¿qué revisarías? *</label><textarea name="revision" required></textarea>
+</div>
+
+<div class="card"><h2>2 · Atención al detalle</h2>
+<p>Al revisar el PACKING encuentras una segunda anotación que indica que el modelo C125 es de <b>120W</b>, pero la ficha principal recibida indica <b>125W</b>.</p>
+<label>¿Qué harías antes de publicar el producto? Explica tu decisión. *</label><textarea name="inconsistencia" required></textarea>
+</div>
+
+<div class="card"><h2>3 · Fotografías e IA</h2>
+<label>Recibes 6 fotografías del mismo producto. ¿Cómo elegirías la imagen de portada? *</label><textarea name="portada" required></textarea>
+<label>Si utilizas IA para limpiar o mejorar una fotografía, ¿qué verificarías antes de usar el resultado? *</label><textarea name="ia" required></textarea>
+</div>
+
+<div class="card"><h2>4 · Organización</h2>
+<p>Recibes 30 productos en un mismo día, cada uno con fotografías, referencia, precio, variantes y stock.</p>
+<label>¿Cómo organizarías el trabajo para evitar cruzar fotografías, referencias, precios o información? *</label><textarea name="organizacion" required></textarea>
+<label>Uno de los productos no tiene precio confirmado. ¿Lo publicarías? ¿Qué harías? *</label><textarea name="incompleto" required></textarea>
+</div>
+
+<div class="card"><h2>5 · E-commerce y herramientas</h2>
+<label>¿Has trabajado con Shopify, MercadoLibre u otra plataforma de e-commerce? Indica cuál y qué tareas realizabas personalmente.</label><textarea name="ecommerce"></textarea>
+<label>Describe tu nivel de Canva y qué piezas has realizado.</label><textarea name="canva"></textarea>
+<label>Si recibes una instrucción para realizar una tarea que nunca has hecho, ¿cómo procedes? *</label><textarea name="instruccion" required></textarea>
+</div>
+
+<div class="card"><h2>6 · Cierre</h2>
+<label>¿Hay algo que quieras agregar sobre tu experiencia que pueda ser útil para este puesto?</label><textarea name="extra"></textarea>
+<p class="note">Al finalizar se descargará automáticamente una copia de tus respuestas en este equipo.</p>
+<button class="primary" type="submit">FINALIZAR PRUEBA</button>
+</div>
+</form></div>
+
+<div id="done" class="card"><div class="check">✓</div><h1>Prueba finalizada</h1><p class="intro">Las respuestas fueron guardadas en este equipo. Entrega el dispositivo al entrevistador.</p>
+<div class="actions"><button class="secondary" id="downloadAgain">DESCARGAR OTRA VEZ</button><button class="primary" style="width:auto;margin:0" id="newCandidate">NUEVA CANDIDATA</button></div></div>
+</main>
+<script>
+let start=Date.now(), lastText="";
+const timer=document.getElementById('timer');
+setInterval(()=>{let s=Math.floor((Date.now()-start)/1000),m=Math.floor(s/60);timer.textContent=String(m).padStart(2,'0')+':'+String(s%60).padStart(2,'0')},1000);
+document.getElementById('fecha').value=new Date().toISOString().slice(0,10);
+function safe(s){return (s||'').replace(/[\\/:*?"<>|]/g,'-').trim()}
+function makeText(){
+ const fd=new FormData(document.getElementById('form'));
+ let elapsed=Math.floor((Date.now()-start)/1000), name=document.getElementById('nombre').value.trim();
+ let labels={titulo:"1. Título",descripcion:"2. Descripción",precios:"3. Precios",revision:"4. Revisión antes de publicar",inconsistencia:"5. Inconsistencia 120W / 125W",portada:"6. Elección de portada",ia:"7. Verificación de imagen con IA",organizacion:"8. Organización de 30 productos",incompleto:"9. Producto sin precio confirmado",ecommerce:"10. Experiencia e-commerce",canva:"11. Canva",instruccion:"12. Tarea nunca realizada",extra:"13. Información adicional"};
+ let out=`7STEP — PRUEBA ASISTENTE DIGITAL\nCandidata: ${name}\nFecha: ${document.getElementById('fecha').value}\nTiempo: ${Math.floor(elapsed/60)} min ${elapsed%60} s\n\n`;
+ for(let [k,v] of fd.entries()) out+=`${labels[k]||k}\n${v}\n\n`;
+ return {text:out,name};
+}
+function download(text,name){
+ const blob=new Blob([text],{type:'text/plain;charset=utf-8'}),a=document.createElement('a');
+ a.href=URL.createObjectURL(blob);a.download=`7STEP_Prueba_${safe(name)||'Candidata'}.txt`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+document.getElementById('form').addEventListener('submit',e=>{
+ e.preventDefault();
+ if(!document.getElementById('nombre').value.trim()){alert('Escribe el nombre de la candidata.');return}
+ let r=makeText();lastText=r.text;download(r.text,r.name);
+ document.getElementById('test').style.display='none';document.getElementById('done').style.display='block';window.scrollTo(0,0);
+});
+document.getElementById('downloadAgain').onclick=()=>{let n=(lastText.match(/Candidata: (.*)/)||[])[1]||'Candidata';download(lastText,n)};
+document.getElementById('newCandidate').onclick=()=>location.reload();
+</script>
+</body></html>
